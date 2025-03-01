@@ -24,8 +24,7 @@ def make_map_fn(split: str):
     def process_fn(example: Dict[str, Any], idx: int, task: str) -> Optional[Dict[str, Any]]:
         instruction ="""Let's think step by step and provide the answer in the following format:
 <answer>answer here</answer>
-Do not explain your reasoning inside the answer tags, provide only the final answer. When an example is provided, you should strictly follow the format of the output/answer in that example.
-"""
+Do not explain your reasoning inside the answer tags, provide only the final answer. When an example is provided, you should strictly follow the format of the output/answer in that example."""
         question = example['question']
         question = f"{question} {instruction}"
 
