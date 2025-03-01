@@ -72,12 +72,16 @@ class FutoshikiDataset(ProceduralDataset):
             f"Remember, in Futoshiki each row and column must contain each number from 1 to {self.config.board_size} exactly once."
         )
 
+        # convert constraints to have keys in str not in tuple
+        new_constraints = {}
+        for key in constraints.keys():
+            new_constraints[str(key)] = constraints[key]
         return {
             "question": question,
             "answer": solution_str,
             "metadata": {
                 "puzzle": puzzle,
-                "constraints": constraints,
+                "constraints": new_constraints,
                 "solution": solution,
                 "board_size": self.config.board_size,
                 "difficulty": self.config.difficulty,

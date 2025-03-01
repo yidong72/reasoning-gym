@@ -203,10 +203,13 @@ Possible colors: {puzzle["color_options"]}
 Return your solution as a JSON map of vertices to colors. (For example: {{"0": 1, "1": 2, "2": 3}}.)
 """
 
+        new_possible_answer = {}
+        for key in solution.keys():
+            new_possible_answer[str(key)] = solution[key]
         return {
             "question": question,
             "answer": None,
-            "metadata": {"possible_answer": solution, "puzzle": puzzle},
+            "metadata": {"possible_answer": new_possible_answer, "puzzle": puzzle},
         }
 
     def score_answer(self, answer: Optional[str], entry: dict[str, Any]) -> float:

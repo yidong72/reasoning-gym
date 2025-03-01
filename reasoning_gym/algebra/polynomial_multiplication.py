@@ -6,7 +6,7 @@ import sympy as sp
 from sympy.polys.monomials import itermonomials
 
 from ..factory import ProceduralDataset, register_dataset
-
+import json
 
 @dataclass
 class PolynomialMultiplicationConfig:
@@ -104,14 +104,31 @@ In addition, When doing calculation, Use the following instructions together wit
         product = sp.expand(polynomial_expr)
         question = rng.choice(self._prompt_templates).format(polynomial_expr=polynomial_expr) + self.added_instruction
 
+        def convert_to_json_safe(obj):
+            if isinstance(obj, (dict, list, tuple)):  # Added tuple to the types we convert
+                # Convert tuples to lists before JSON serialization
+                if isinstance(obj, tuple):
+                    obj = list(obj)
+                # Handle nested structures
+                if isinstance(obj, dict):
+                    obj = {str(k): convert_to_json_safe(v) for k, v in obj.items()}
+                elif isinstance(obj, (list, tuple)):
+                    obj = [convert_to_json_safe(item) for item in obj]
+                elif isinstance(obj, sp.Symbol):
+                    obj = str(obj)
+                return json.dumps(obj)
+            return str(obj)
+        
+        metadata = {
+            "polynomial_expr": str(polynomial_expr),
+            "result": str(product),
+            "variables": convert_to_json_safe(list(product.free_symbols)),
+        }
+
         return {
             "question": question,
-            "answer": product,
-            "metadata": {
-                "polynomial_expr": str(polynomial_expr),
-                "result": str(product),
-                "variables": list(product.free_symbols),
-            },
+            "answer": str(product),
+            "metadata": metadata,
         }
 
     def _get_monomials(self, rng: random.Random) -> str:

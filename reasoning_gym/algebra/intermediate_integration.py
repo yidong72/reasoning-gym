@@ -237,7 +237,7 @@ In addition, when doing calculation, use the following instructions together wit
                 "problem_type": problem_type,
                 "variable": str(x),
                 "type": substitution_type if problem_type == "substitution" else parts_type,
-                "expected_answer_expression": answer,
+                "expected_answer_expression": str(answer),
             },
         }
 

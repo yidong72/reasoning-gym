@@ -150,6 +150,7 @@ class GSMSymbolicDataset(ProceduralDataset):
         generator = self.generators[generator_idx]
         example = generator(rng, self.config.difficulty)
         example["question"] += " Give only the result as your final answer."
+        del example['metadata']['variables']
         return example
 
 

@@ -134,8 +134,8 @@ class TimeIntervalsDataset(ProceduralDataset):
             "answer": answer,
             "metadata": {
                 "task_type": task_type,
-                "start_time": start_dt,
-                "end_time": end_dt,
+                "start_time": str(start_dt),
+                "end_time": str(end_dt),
                 "format": format_str,
                 "expected_format": expected_format,
             },

@@ -146,10 +146,10 @@ class AdvancedGeometryDataset(ProceduralDataset):
         answer_str = f"({x_ortho_approx:.3f}, {y_ortho_approx:.3f})"
 
         metadata = {
-            "A": (A.x, A.y),
-            "B": (B.x, B.y),
-            "C": (C.x, C.y),
-            "ortho": (ortho.x, ortho.y),
+            "A": (int(A.x), int(A.y)),
+            "B": (int(B.x), int(B.y)),
+            "C": (int(C.x), int(C.y)),
+            "ortho": (str(ortho.x), str(ortho.y)),
             "orthocenter_exact": (str(ortho.x), str(ortho.y)),
             "orthocenter_approx": (x_ortho_approx, y_ortho_approx),
         }
@@ -181,9 +181,9 @@ class AdvancedGeometryDataset(ProceduralDataset):
         answer_str = f"{radius_approx:.3f}"
 
         metadata = {
-            "A": (A.x, A.y),
-            "B": (B.x, B.y),
-            "C": (C.x, C.y),
+            "A": (int(A.x), int(A.y)),
+            "B": (int(B.x), int(B.y)),
+            "C": (int(C.x), int(C.y)),
             "incircle_radius_exact": str(radius),
             "incircle_radius_approx": radius_approx,
         }
@@ -220,9 +220,9 @@ class AdvancedGeometryDataset(ProceduralDataset):
 
         answer_str = f"{angle_deg:.2f}°"
         metadata = {
-            "A": (A.x, A.y),
-            "B": (B.x, B.y),
-            "C": (C.x, C.y),
+            "A": (int(A.x), int(A.y)),
+            "B": (int(B.x), int(B.y)),
+            "C": (int(C.x), int(C.y)),
             "angle_ABC_degrees": angle_deg,
         }
         return question, answer_str, metadata

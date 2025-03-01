@@ -152,14 +152,22 @@ class BasicArithmeticDataset(ProceduralDataset):
                         right_parts.append(")")
 
                     else:
-                        divisor = rng.choice(find_common_divisors(dividend, 0))
+                        # When choosing divisor, add safety check
+                        divisors = find_common_divisors(dividend, 0)
+                        if not divisors:  # If somehow we still get an empty list
+                            divisors = [1]  # Use 1 as fallback
+                        divisor = rng.choice(divisors)
                         left_parts.append(str(divisor))
                         left_parts.append("+")
 
                     left_parts.extend(right_parts)
                 else:
                     if dividend != 0:
-                        divisor = rng.choice(find_common_divisors(dividend, 0))
+                        # When choosing divisor, add safety check
+                        divisors = find_common_divisors(dividend, 0)
+                        if not divisors:  # If somehow we still get an empty list
+                            divisors = [1]  # Use 1 as fallback
+                        divisor = rng.choice(divisors)
                     else:
                         divisor = rng.randint(1, 10**num_digits - 1)
                     left_parts.append(str(divisor))

@@ -3,6 +3,7 @@ import itertools
 from dataclasses import dataclass
 from random import Random
 from typing import Any, Optional
+import json
 
 import numpy as np
 
@@ -413,11 +414,26 @@ class KnightsKnavesDataset(ProceduralDataset):
         # Prepare the return dictionary
         question = formatted["quiz"]
         answer = formatted["solution_text"]
+        # convert tuple to list in metadata, include nested tuples
+
+        def convert_to_json_safe(obj):
+            if isinstance(obj, (dict, list, tuple)):  # Added tuple to the types we convert
+                # Convert tuples to lists before JSON serialization
+                if isinstance(obj, tuple):
+                    obj = list(obj)
+                # Handle nested structures
+                if isinstance(obj, dict):
+                    obj = {str(k): convert_to_json_safe(v) for k, v in obj.items()}
+                elif isinstance(obj, (list, tuple)):
+                    obj = [convert_to_json_safe(item) for item in obj]
+                return json.dumps(obj)
+            return str(obj)
+
         metadata = {
-            "statements": problem["statements"],
-            "solution": problem["solution"],
-            "names": formatted["names"],
-            "knight_knave_terms": formatted["knight_knave"],
+            "statements": convert_to_json_safe(problem["statements"]),
+            "solution": list(problem["solution"]),
+            "names": [str(name) for name in formatted["names"]],
+            "knight_knave_terms": {str(key): str(value) for key, value in formatted["knight_knave"].items()},
         }
 
         return {"question": question, "answer": answer, "metadata": metadata}

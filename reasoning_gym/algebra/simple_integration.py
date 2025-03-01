@@ -82,7 +82,7 @@ In addition, When doing calculation, Use the following instructions together wit
             "metadata": {
                 "integrand": str(derivative),
                 "variable": str(symbol),
-                "expected_answer_expression": polynomial,
+                "expected_answer_expression": str(polynomial),
             },
         }
 

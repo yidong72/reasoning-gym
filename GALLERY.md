@@ -49,6 +49,7 @@ This gallery shows examples from all available datasets using their default conf
 - [letter_counting](#letter_counting)
 - [letter_jumble](#letter_jumble)
 - [list_functions](#list_functions)
+- [mahjong_puzzle](#mahjong_puzzle)
 - [manipulate_matrix](#manipulate_matrix)
 - [maze](#maze)
 - [mini_sudoku](#mini_sudoku)
@@ -349,7 +350,7 @@ Example 3:
 Input:  0 0 0 7 9 4 9 1 0 0
 Output: 7 9 4 9 1 0 0 0 0 0
 
-Below is a test input grid. Predict the corresponding output grid by applying the rule you found. Describe how you derived the rule and your overall reasoning process in detail before you submit your answer. Your final answer must be placed in <output></output> tags and should be just be the text output grid itself.
+Below is a test input grid. Predict the corresponding output grid by applying the rule you found. Describe how you derived the rule and your overall reasoning process in detail before you submit your answer. Your final answer should be just the test output grid itself.
 
 Input:
 0 0 0 0 0 1 5 0 0 0
@@ -371,7 +372,7 @@ Example 3:
 Input:  0 0 0 0 0 0 0 0 0 3 7 2 1 1 3 1 3 5 0
 Output: 0 0 0 0 0 0 0 0 0 0 3 7 2 1 1 3 1 3 5
 
-Below is a test input grid. Predict the corresponding output grid by applying the rule you found. Describe how you derived the rule and your overall reasoning process in detail before you submit your answer. Your final answer must be placed in <output></output> tags and should be just be the text output grid itself.
+Below is a test input grid. Predict the corresponding output grid by applying the rule you found. Describe how you derived the rule and your overall reasoning process in detail before you submit your answer. Your final answer should be just the test output grid itself.
 
 Input:
 0 9 2 1 2 8 6 6 9 8 0 0 0 0 0 0 0 0 0
@@ -393,7 +394,7 @@ Example 3:
 Input:  5 5 5 5 5 5 5 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 Output: 5 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
-Below is a test input grid. Predict the corresponding output grid by applying the rule you found. Describe how you derived the rule and your overall reasoning process in detail before you submit your answer. Your final answer must be placed in <output></output> tags and should be just be the text output grid itself.
+Below is a test input grid. Predict the corresponding output grid by applying the rule you found. Describe how you derived the rule and your overall reasoning process in detail before you submit your answer. Your final answer should be just the test output grid itself.
 
 Input:
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 0 0 0 0 0 0 0
@@ -1197,19 +1198,19 @@ size = 500
 Example tasks:
 ````
 Example 1:
-Question: Please solve this problem. Assume there is arbitrary bit depth and that there are signed integers. Reply only with the final hexidecimal value.
+Question: Please solve this problem. Assume there is arbitrary bit depth and that there are signed integers. If the answer is negative, reply as a negative value (ex., -0x3), not the two's-compliment form. Reply only with the final hexidecimal value.
 ((0x3a24 - 0x24b8) + (0x1741 >> 0x3))
 Answer: 0x1854
 Metadata: {'problem': '((0x3a24 - 0x24b8) + (0x1741 >> 0x3))'}
 
 Example 2:
-Question: Please solve this problem. Assume there is arbitrary bit depth and that there are signed integers. Reply only with the final hexidecimal value.
+Question: Please solve this problem. Assume there is arbitrary bit depth and that there are signed integers. If the answer is negative, reply as a negative value (ex., -0x3), not the two's-compliment form. Reply only with the final hexidecimal value.
 ((0xacf1 * 0xb3cc) - (0x9a4b << 0x0))
 Answer: 0x7975b8c1
 Metadata: {'problem': '((0xacf1 * 0xb3cc) - (0x9a4b << 0x0))'}
 
 Example 3:
-Question: Please solve this problem. Assume there is arbitrary bit depth and that there are signed integers. Reply only with the final hexidecimal value.
+Question: Please solve this problem. Assume there is arbitrary bit depth and that there are signed integers. If the answer is negative, reply as a negative value (ex., -0x3), not the two's-compliment form. Reply only with the final hexidecimal value.
 ((0x2e39 + 0x622b) >> 0x0)
 Answer: 0x9064
 Metadata: {'problem': '((0x2e39 + 0x622b) >> 0x0)'}
@@ -1551,7 +1552,7 @@ Output:
 
 Given the following input:
 
-{'number_of_steps': 72}
+{'number_of_steps': 93}
 
 Can you predict the output without writing any code? Please think and then provide the exact output in the form of a JSON object as your final answer. The keys and values of the object should strictly match the output requirement as specified.
 
@@ -1568,7 +1569,7 @@ def main(number_of_steps):
         current, previous = current + previous, current
     return {"distinct_ways": current}
 
-Answer: {"distinct_ways": 806515533049393}
+Answer: {"distinct_ways": 19740274219868223167}
 
 Example 2:
 Question: 
@@ -1587,7 +1588,7 @@ Output:
 
 Given the following input:
 
-{'number_of_steps': 1}
+{'number_of_steps': 53}
 
 Can you predict the output without writing any code? Please think and then provide the exact output in the form of a JSON object as your final answer. The keys and values of the object should strictly match the output requirement as specified.
 
@@ -1604,7 +1605,7 @@ def main(number_of_steps):
         current, previous = current + previous, current
     return {"distinct_ways": current}
 
-Answer: {"distinct_ways": 1}
+Answer: {"distinct_ways": 86267571272}
 
 Example 3:
 Question: 
@@ -1623,7 +1624,7 @@ Output:
 
 Given the following output:
 
-{'distinct_ways': 2178309}
+{'distinct_ways': 6765}
 
 Can you predict a feasible input without writing any code? Please reason and put your final answer in the form of a JSON object, even if the there is only one input variable, with keys strictly matching the input variables' names as specified.
 
@@ -1640,7 +1641,7 @@ def main(number_of_steps):
         current, previous = current + previous, current
     return {"distinct_ways": current}
 
-Answer: {"number_of_steps": 31}
+Answer: {"number_of_steps": 19}
 
 ````
 
@@ -2286,50 +2287,42 @@ Example tasks:
 Example 1:
 Question: Please read the following figlet font:
 
-  sSSSs        d s  b        sss.      d sss        sss sssss 
- S     S       S  S S      d           S                S     
-S       S      S   SS      Y           S                S     
-S       S      S    S        ss.       S sSSs           S     
-S       S      S    S           b      S                S     
- S     S       S    S           P      S                S     
-  "sss"        P    P      ` ss'       P sSSss          P     
-                                                              
+ _______   _______   _______   _______   _______ 
+|       | |    |  | |     __| |    ___| |_     _|
+|   -   | |       | |__     | |    ___|   |   |  
+|_______| |__|____| |_______| |_______|   |___|  
+                                                 
 
 Answer: ONSET
-Metadata: {'font': 'amc_tubes', 'space_letters': True}
+Metadata: {'font': 'chunky', 'space_letters': True}
 
 Example 2:
 Question: What word does this say?
 
-######   ######   ######     ####   ##    ## 
- ##  ##   ##  ##   ##  ##   ##  ##   ##  ##  
- ##  ##   ##       ##  ##  ##   ##   ##  ##  
- #####    ####     #####   ##        ######  
- ##       ##       ## ##   ##   ##   ##  ##  
- ##       ##  ##   ## ##    ##  ##   ##  ##  
-####     ######   ### ###    ####   ##    ## 
-                                             
+   /`-.        )\.---.          /`-.          )\.-.            .'(  
+ ,' _  \      (   ,-._(       ,' _  \       ,' ,-,_)       ,') \  ) 
+(  '-' (       \  '-,        (  '-' (      (  .   _       (  '-' (  
+ ) ,._.'        ) ,-`         ) ,_ .'       ) '..' )       ) .-.  ) 
+(  '           (  ``-.       (  ' ) \      (  ,   (       (  ,  ) \ 
+ )/             )..-.(        )/   )/       )/'._.'        )/    )/ 
+                                                                    
 
 Answer: PERCH
-Metadata: {'font': 'demo_2__', 'space_letters': True}
+Metadata: {'font': 'ghoulish', 'space_letters': True}
 
 Example 3:
 Question: What word does this say?
 
-                                              
-                                              
-                                              
-### ###   ### ###   #####    ######   #####   
- ## ##     ##  #     ## ##    ##  #    ## ##  
- ## ##     ### #     ## ##    ####     ## ##  
- ## ##     #####     ## ##    ##       ####   
- ## ##     ## ##     ## ##    ## ##    ## ##  
-  ###     ### ##    #####    ######   #### ## 
-                                              
-                                              
+ _     _    _______    ______     _______    ______  
+(_)   (_)  (_______)  (______)   (_______)  (_____ \ 
+ _     _    _     _    _     _    _____      _____) )
+| |   | |  | |   | |  | |   | |  |  ___)    |  __  / 
+| |___| |  | |   | |  | |__/ /   | |_____   | |  \ \ 
+ \_____/   |_|   |_|  |_____/    |_______)  |_|   |_|
+                                                     
 
 Answer: UNDER
-Metadata: {'font': 'xcourb', 'space_letters': True}
+Metadata: {'font': 'rounded', 'space_letters': True}
 
 ````
 
@@ -2568,7 +2561,7 @@ Vertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Edges: [(0, 2), (0, 3), (0, 4), (0, 8), (1, 2), (1, 3), (1, 5), (1, 6), (1, 9), (2, 5), (2, 8), (2, 9), (3, 5), (3, 6), (3, 7), (4, 9), (6, 9), (7, 8), (7, 9), (8, 9)]
 Possible colors: [1, 2, 3, 4]
 
-Return your solution as a JSON map of vertices to colors. (For example: {0: 1, 1: 2, 2: 3})
+Return your solution as a JSON map of vertices to colors. (For example: {"0": 1, "1": 2, "2": 3}.)
 
 Answer: None
 Metadata: {'possible_answer': {0: 1, 1: 1, 2: 2, 3: 2, 4: 2, 5: 3, 6: 3, 7: 1, 8: 3, 9: 4}, 'puzzle': {'vertices': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 'edges': [(0, 2), (0, 3), (0, 4), (0, 8), (1, 2), (1, 3), (1, 5), (1, 6), (1, 9), (2, 5), (2, 8), (2, 9), (3, 5), (3, 6), (3, 7), (4, 9), (6, 9), (7, 8), (7, 9), (8, 9)], 'num_colors': 4, 'color_options': [1, 2, 3, 4]}}
@@ -2580,7 +2573,7 @@ Vertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Edges: [(0, 1), (0, 3), (0, 9), (1, 3), (1, 8), (2, 4), (2, 5), (3, 6), (3, 7), (3, 8), (4, 6), (4, 9), (6, 7), (7, 9)]
 Possible colors: [1, 2, 3, 4]
 
-Return your solution as a JSON map of vertices to colors. (For example: {0: 1, 1: 2, 2: 3})
+Return your solution as a JSON map of vertices to colors. (For example: {"0": 1, "1": 2, "2": 3}.)
 
 Answer: None
 Metadata: {'possible_answer': {0: 1, 1: 2, 2: 1, 3: 3, 4: 2, 5: 2, 6: 1, 7: 2, 8: 1, 9: 3}, 'puzzle': {'vertices': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 'edges': [(0, 1), (0, 3), (0, 9), (1, 3), (1, 8), (2, 4), (2, 5), (3, 6), (3, 7), (3, 8), (4, 6), (4, 9), (6, 7), (7, 9)], 'num_colors': 4, 'color_options': [1, 2, 3, 4]}}
@@ -2592,7 +2585,7 @@ Vertices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Edges: [(0, 4), (0, 5), (0, 6), (0, 7), (0, 8), (0, 9), (1, 5), (1, 8), (1, 9), (2, 5), (2, 6), (2, 7), (2, 9), (3, 6), (3, 7), (4, 5), (4, 6), (4, 7), (4, 8), (5, 8), (6, 9)]
 Possible colors: [1, 2, 3, 4]
 
-Return your solution as a JSON map of vertices to colors. (For example: {0: 1, 1: 2, 2: 3})
+Return your solution as a JSON map of vertices to colors. (For example: {"0": 1, "1": 2, "2": 3}.)
 
 Answer: None
 Metadata: {'possible_answer': {0: 1, 1: 1, 2: 1, 3: 1, 4: 2, 5: 3, 6: 3, 7: 3, 8: 4, 9: 2}, 'puzzle': {'vertices': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 'edges': [(0, 4), (0, 5), (0, 6), (0, 7), (0, 8), (0, 9), (1, 5), (1, 8), (1, 9), (2, 5), (2, 6), (2, 7), (2, 9), (3, 6), (3, 7), (4, 5), (4, 6), (4, 7), (4, 8), (5, 8), (6, 9)], 'num_colors': 4, 'color_options': [1, 2, 3, 4]}}
@@ -2783,10 +2776,10 @@ Explanation:
     - The strings cannot be made identical as 'o' needs to be mapped to both 'a' and 'r'.
 
 Return True if the following two strings are isomorphic, or False otherwise:
-cc bw
+oo zm
 
 Answer: False
-Metadata: {'words': ['cc', 'bw'], 'solution': False, 'solvable': False}
+Metadata: {'words': ['oo', 'zm'], 'solution': False, 'solvable': False}
 
 Example 2:
 Question: Two strings are isomorphic if the characters in one string can be replaced to get the second string.
@@ -2809,10 +2802,10 @@ Explanation:
     - The strings cannot be made identical as 'o' needs to be mapped to both 'a' and 'r'.
 
 Return True if the following two strings are isomorphic, or False otherwise:
-nai oik
+fpu slk
 
 Answer: True
-Metadata: {'words': ['nai', 'oik'], 'solution': True, 'solvable': True}
+Metadata: {'words': ['fpu', 'slk'], 'solution': True, 'solvable': True}
 
 Example 3:
 Question: Two strings are isomorphic if the characters in one string can be replaced to get the second string.
@@ -2835,10 +2828,10 @@ Explanation:
     - The strings cannot be made identical as 'o' needs to be mapped to both 'a' and 'r'.
 
 Return True if the following two strings are isomorphic, or False otherwise:
-hogtytyof kgqwfwfgh
+dnxbsbsnc knemcmcnd
 
 Answer: True
-Metadata: {'words': ['hogtytyof', 'kgqwfwfgh'], 'solution': True, 'solvable': True}
+Metadata: {'words': ['dnxbsbsnc', 'knemcmcnd'], 'solution': True, 'solvable': True}
 
 ````
 
@@ -3092,17 +3085,17 @@ Example tasks:
 Example 1:
 Question: A very special island is inhabited only by sages and fools. Sages always tell the truth, and fools always lie. You meet 2 inhabitants: Zoey, and Riley. Zoey commented, "Riley is a fool". In Riley's words: "Zoey is a sage or Riley is a sage". So who is a sage and who is a fool? (Format your answer like: "Zoey is a sage/fool, and Riley is a sage/fool")
 Answer: Zoey is a fool, and Riley is a sage.
-Metadata: {'statements': (('lying', 1), ('or', ('telling-truth', 0), ('telling-truth', 1))), 'solution': (False, True), 'names': ['Zoey', 'Riley'], 'knight_knave_terms': {'knight': 'sage', 'knave': 'fool', 'a_knight': 'a sage', 'a_knave': 'a fool', 'Knight': 'Sage', 'Knave': 'Fool'}}
+Metadata: {'statements': (('lying', 1), ('or', ('telling-truth', 0), ('telling-truth', 1))), 'solution': (False, True), 'names': [np.str_('Zoey'), np.str_('Riley')], 'knight_knave_terms': {'knight': 'sage', 'knave': 'fool', 'a_knight': np.str_('a sage'), 'a_knave': np.str_('a fool'), 'Knight': 'Sage', 'Knave': 'Fool'}}
 
 Example 2:
 Question: A very special island is inhabited only by pioneers and laggards. Pioneers always tell the truth, and laggards always lie. You meet 2 inhabitants: Riley, and Olivia. "If Riley is a pioneer then Olivia is a laggard" - Riley. Olivia stated, "Olivia is a pioneer and Riley is a laggard". So who is a pioneer and who is a laggard? (Format your answer like: "Riley is a pioneer/laggard, and Olivia is a pioneer/laggard")
 Answer: Riley is a pioneer, and Olivia is a laggard.
-Metadata: {'statements': (('->', ('telling-truth', 0), ('lying', 1)), ('and', ('telling-truth', 1), ('lying', 0))), 'solution': (True, False), 'names': ['Riley', 'Olivia'], 'knight_knave_terms': {'knight': 'pioneer', 'knave': 'laggard', 'a_knight': 'a pioneer', 'a_knave': 'a laggard', 'Knight': 'Pioneer', 'Knave': 'Laggard'}}
+Metadata: {'statements': (('->', ('telling-truth', 0), ('lying', 1)), ('and', ('telling-truth', 1), ('lying', 0))), 'solution': (True, False), 'names': [np.str_('Riley'), np.str_('Olivia')], 'knight_knave_terms': {'knight': 'pioneer', 'knave': 'laggard', 'a_knight': np.str_('a pioneer'), 'a_knave': np.str_('a laggard'), 'Knight': 'Pioneer', 'Knave': 'Laggard'}}
 
 Example 3:
 Question: A very special island is inhabited only by saints and sinners. Saints always tell the truth, and sinners always lie. You meet 2 inhabitants: Samuel, and Jacob. Samuel expressed that If Samuel is a saint then Jacob is a sinner. Jacob was heard saying, "If Samuel is a saint then Samuel is a sinner". So who is a saint and who is a sinner? (Format your answer like: "Samuel is a saint/sinner, and Jacob is a saint/sinner")
 Answer: Samuel is a saint, and Jacob is a sinner.
-Metadata: {'statements': (('->', ('telling-truth', 0), ('lying', 1)), ('->', ('telling-truth', 0), ('lying', 0))), 'solution': (True, False), 'names': ['Samuel', 'Jacob'], 'knight_knave_terms': {'knight': 'saint', 'knave': 'sinner', 'a_knight': 'a saint', 'a_knave': 'a sinner', 'Knight': 'Saint', 'Knave': 'Sinner'}}
+Metadata: {'statements': (('->', ('telling-truth', 0), ('lying', 1)), ('->', ('telling-truth', 0), ('lying', 0))), 'solution': (True, False), 'names': [np.str_('Samuel'), np.str_('Jacob')], 'knight_knave_terms': {'knight': 'saint', 'knave': 'sinner', 'a_knight': np.str_('a saint'), 'a_knave': np.str_('a sinner'), 'Knight': 'Saint', 'Knave': 'Sinner'}}
 
 ````
 
@@ -3490,6 +3483,123 @@ Input: [59, 5, 81, 5, 20, 5, 61, 76, 48, 70, 5, 30]
 Output:
 
 Answer: [4]
+
+````
+
+### mahjong_puzzle
+Generates Mahjong Puzzle exercises with configurable difficulty
+
+Default configuration:
+```python
+min_num_rounds = 10
+max_num_rounds = 50
+size = 500
+seed = 42
+```
+
+Example tasks:
+````
+Example 1:
+Question: There are several letter cards, and the game rules are as follows:
+1. Initially, there are 13 cards.
+2. Each time, a new card is added, and a result is determined. Then, one card is removed.
+3. When there are two identical cards in hand, and the newly added card is the same as these two cards, the result is determined as "Peng".
+4. If there are two cards in hand such that the new card can form a consecutive letter sequence with these two cards, the result is determined as "Chi". For example: ABC, BCD, CDE, etc.
+5. If the new card does not meet the conditions of 3 and 4, the result is determined as "Pass".
+6. "Peng" takes precedence over "Chi".
+7. The card that is removed does not affect the result determination of the current round.
+
+Example:
+- Input: Given the initial cards ABBCCDDEEFFGH, what is the result at the end of performing the following rounds of operations:
+Round 1: Add a B card and remove an E card.
+Round 2: Add a C card and remove an H card.
+Round 3: Add an E card and remove a D card.
+Round 4: Add a D card and remove an F card.
+- Output: Chi
+
+Now, given the initial cards OHBVRPOIGIFLB, what is the result at the end of performing the following rounds of operations:
+Round 1: Add a B card and remove a V card.
+Round 2: Add an O card and remove a F card.
+Round 3: Add an O card and remove a R card.
+Round 4: Add an U card and remove an O card.
+Round 5: Add a N card and remove an O card.
+Round 6: Add a Q card and remove a G card.
+Round 7: Add a B card and remove a N card.
+Round 8: Add a Q card and remove an I card.
+Round 9: Add a B card and remove a Q card.
+Round 10: Add a G card and remove a B card.
+Round 11: Add a F card and remove a B card.
+Round 12: Add an I card and remove a F card.
+
+Answer: Chi
+Metadata: {'rounds': [{'add': 'B', 'remove': 'V', 'cards': 'OHBRPOIGIFLBB', 'result': 'Peng'}, {'add': 'O', 'remove': 'F', 'cards': 'OHBRPOIGILBBO', 'result': 'Peng'}, {'add': 'O', 'remove': 'R', 'cards': 'OHBPOIGILBBOO', 'result': 'Peng'}, {'add': 'U', 'remove': 'O', 'cards': 'HBPOIGILBBOOU', 'result': 'Pass'}, {'add': 'N', 'remove': 'O', 'cards': 'HBPIGILBBOOUN', 'result': 'Pass'}, {'add': 'Q', 'remove': 'G', 'cards': 'HBPIILBBOOUNQ', 'result': 'Chi'}, {'add': 'B', 'remove': 'N', 'cards': 'HBPIILBBOOUQB', 'result': 'Peng'}, {'add': 'Q', 'remove': 'I', 'cards': 'HBPILBBOOUQBQ', 'result': 'Chi'}, {'add': 'B', 'remove': 'Q', 'cards': 'HBPILBBOOUBQB', 'result': 'Peng'}, {'add': 'G', 'remove': 'B', 'cards': 'HPILBBOOUBQBG', 'result': 'Chi'}, {'add': 'F', 'remove': 'B', 'cards': 'HPILBOOUBQBGF', 'result': 'Chi'}, {'add': 'I', 'remove': 'F', 'cards': 'HPILBOOUBQBGI', 'result': 'Chi'}], 'solution': 'Chi'}
+
+Example 2:
+Question: There are several letter cards, and the game rules are as follows:
+1. Initially, there are 13 cards.
+2. Each time, a new card is added, and a result is determined. Then, one card is removed.
+3. When there are two identical cards in hand, and the newly added card is the same as these two cards, the result is determined as "Peng".
+4. If there are two cards in hand such that the new card can form a consecutive letter sequence with these two cards, the result is determined as "Chi". For example: ABC, BCD, CDE, etc.
+5. If the new card does not meet the conditions of 3 and 4, the result is determined as "Pass".
+6. "Peng" takes precedence over "Chi".
+7. The card that is removed does not affect the result determination of the current round.
+
+Example:
+- Input: Given the initial cards ABBCCDDEEFFGH, what is the result at the end of performing the following rounds of operations:
+Round 1: Add a B card and remove an E card.
+Round 2: Add a C card and remove an H card.
+Round 3: Add an E card and remove a D card.
+Round 4: Add a D card and remove an F card.
+- Output: Chi
+
+Now, given the initial cards CSSWJDXQGUMFP, what is the result at the end of performing the following rounds of operations:
+Round 1: Add a N card and remove an U card.
+Round 2: Add a V card and remove a X card.
+Round 3: Add a S card and remove a S card.
+Round 4: Add a S card and remove a W card.
+Round 5: Add a S card and remove a P card.
+Round 6: Add an E card and remove a S card.
+Round 7: Add a R card and remove a V card.
+Round 8: Add a P card and remove a D card.
+Round 9: Add an E card and remove a C card.
+Round 10: Add a B card and remove a G card.
+Round 11: Add an E card and remove a N card.
+
+Answer: Peng
+Metadata: {'rounds': [{'add': 'N', 'remove': 'U', 'cards': 'CSSWJDXQGMFPN', 'result': 'Pass'}, {'add': 'V', 'remove': 'X', 'cards': 'CSSWJDQGMFPNV', 'result': 'Chi'}, {'add': 'S', 'remove': 'S', 'cards': 'CSWJDQGMFPNVS', 'result': 'Peng'}, {'add': 'S', 'remove': 'W', 'cards': 'CSJDQGMFPNVSS', 'result': 'Peng'}, {'add': 'S', 'remove': 'P', 'cards': 'CSJDQGMFNVSSS', 'result': 'Peng'}, {'add': 'E', 'remove': 'S', 'cards': 'CJDQGMFNVSSSE', 'result': 'Chi'}, {'add': 'R', 'remove': 'V', 'cards': 'CJDQGMFNSSSER', 'result': 'Chi'}, {'add': 'P', 'remove': 'D', 'cards': 'CJQGMFNSSSERP', 'result': 'Chi'}, {'add': 'E', 'remove': 'C', 'cards': 'JQGMFNSSSERPE', 'result': 'Chi'}, {'add': 'B', 'remove': 'G', 'cards': 'JQMFNSSSERPEB', 'result': 'Pass'}, {'add': 'E', 'remove': 'N', 'cards': 'JQMFSSSERPEBE', 'result': 'Peng'}], 'solution': 'Peng'}
+
+Example 3:
+Question: There are several letter cards, and the game rules are as follows:
+1. Initially, there are 13 cards.
+2. Each time, a new card is added, and a result is determined. Then, one card is removed.
+3. When there are two identical cards in hand, and the newly added card is the same as these two cards, the result is determined as "Peng".
+4. If there are two cards in hand such that the new card can form a consecutive letter sequence with these two cards, the result is determined as "Chi". For example: ABC, BCD, CDE, etc.
+5. If the new card does not meet the conditions of 3 and 4, the result is determined as "Pass".
+6. "Peng" takes precedence over "Chi".
+7. The card that is removed does not affect the result determination of the current round.
+
+Example:
+- Input: Given the initial cards ABBCCDDEEFFGH, what is the result at the end of performing the following rounds of operations:
+Round 1: Add a B card and remove an E card.
+Round 2: Add a C card and remove an H card.
+Round 3: Add an E card and remove a D card.
+Round 4: Add a D card and remove an F card.
+- Output: Chi
+
+Now, given the initial cards AHISHLYOSBWVK, what is the result at the end of performing the following rounds of operations:
+Round 1: Add a H card and remove a K card.
+Round 2: Add a W card and remove a H card.
+Round 3: Add an U card and remove an O card.
+Round 4: Add a M card and remove an U card.
+Round 5: Add a V card and remove a Y card.
+Round 6: Add a C card and remove a S card.
+Round 7: Add a K card and remove a H card.
+Round 8: Add a V card and remove a M card.
+Round 9: Add a W card and remove a W card.
+Round 10: Add a W card and remove an A card.
+
+Answer: Peng
+Metadata: {'rounds': [{'add': 'H', 'remove': 'K', 'cards': 'AHISHLYOSBWVH', 'result': 'Peng'}, {'add': 'W', 'remove': 'H', 'cards': 'AISHLYOSBWVHW', 'result': 'Pass'}, {'add': 'U', 'remove': 'O', 'cards': 'AISHLYSBWVHWU', 'result': 'Pass'}, {'add': 'M', 'remove': 'U', 'cards': 'AISHLYSBWVHWM', 'result': 'Pass'}, {'add': 'V', 'remove': 'Y', 'cards': 'AISHLSBWVHWMV', 'result': 'Pass'}, {'add': 'C', 'remove': 'S', 'cards': 'AIHLSBWVHWMVC', 'result': 'Chi'}, {'add': 'K', 'remove': 'H', 'cards': 'AILSBWVHWMVCK', 'result': 'Chi'}, {'add': 'V', 'remove': 'M', 'cards': 'AILSBWVHWVCKV', 'result': 'Peng'}, {'add': 'W', 'remove': 'W', 'cards': 'AILSBVHWVCKVW', 'result': 'Peng'}, {'add': 'W', 'remove': 'A', 'cards': 'ILSBVHWVCKVWW', 'result': 'Peng'}], 'solution': 'Peng'}
 
 ````
 
@@ -4302,31 +4412,31 @@ size = 500
 Example tasks:
 ````
 Example 1:
-Question: Calculate the following: (-95*z**3 + 18*z)*(-12*z**2 + 78*z - 104)
+Question: Calculate the following: (18*z**2 - 95)*(-12*z**3 + 78*z**2 - 104*z)
 In addition, When doing calculation, Use the following instructions together with your mathematical ingenuity to solve the integral problems
 ## 1. Use ** instead ^ to represent powers. For example 7*X**2 instead of 7*X^2.
 ## 2. Always use * when doing all sorts of multiplcation in your reasoning steps and even in reporting answers.
 
-Answer: 1140*z**5 - 7410*z**4 + 9664*z**3 + 1404*z**2 - 1872*z
-Metadata: {'polynomial_expr': '(-95*z**3 + 18*z)*(-12*z**2 + 78*z - 104)', 'result': '1140*z**5 - 7410*z**4 + 9664*z**3 + 1404*z**2 - 1872*z', 'variables': [z]}
+Answer: -216*z**5 + 1404*z**4 - 732*z**3 - 7410*z**2 + 9880*z
+Metadata: {'polynomial_expr': '(18*z**2 - 95)*(-12*z**3 + 78*z**2 - 104*z)', 'result': '-216*z**5 + 1404*z**4 - 732*z**3 - 7410*z**2 + 9880*z', 'variables': [z]}
 
 Example 2:
-Question: Simplify this expression: (-49*x**3 + 77*x + 8)*(8*x**3 - 163*x**2 - 49)*(16*x**3 + 74*x + 98)
+Question: Simplify this expression: (-49*x**3 + 8*x**2 - 163)*(8*x**3 - 49*x**2 + 77*x)*(98*x**3 + 16*x**2 + 74*x)
 In addition, When doing calculation, Use the following instructions together with your mathematical ingenuity to solve the integral problems
 ## 1. Use ** instead ^ to represent powers. For example 7*X**2 instead of 7*X^2.
 ## 2. Always use * when doing all sorts of multiplcation in your reasoning steps and even in reporting answers.
 
-Answer: -6272*x**9 + 127792*x**8 - 19152*x**7 + 391246*x**6 + 807446*x**5 - 746364*x**4 - 1091196*x**3 - 406994*x**2 - 398762*x - 38416
-Metadata: {'polynomial_expr': '(-49*x**3 + 77*x + 8)*(8*x**3 - 163*x**2 - 49)*(16*x**3 + 74*x + 98)', 'result': '-6272*x**9 + 127792*x**8 - 19152*x**7 + 391246*x**6 + 807446*x**5 - 746364*x**4 - 1091196*x**3 - 406994*x**2 - 398762*x - 38416', 'variables': [x]}
+Answer: -38416*x**9 + 235298*x**8 - 397738*x**7 + 48346*x**6 + 463508*x**5 - 1153118*x**4 + 390222*x**3 - 928774*x**2
+Metadata: {'polynomial_expr': '(-49*x**3 + 8*x**2 - 163)*(8*x**3 - 49*x**2 + 77*x)*(98*x**3 + 16*x**2 + 74*x)', 'result': '-38416*x**9 + 235298*x**8 - 397738*x**7 + 48346*x**6 + 463508*x**5 - 1153118*x**4 + 390222*x**3 - 928774*x**2', 'variables': [x]}
 
 Example 3:
-Question: Calculate the following: (29*y**2 - 49*y)*(21*y**3 + 49)
+Question: Calculate the following: (29 - 49*y)*(49*y**3 + 21*y**2)
 In addition, When doing calculation, Use the following instructions together with your mathematical ingenuity to solve the integral problems
 ## 1. Use ** instead ^ to represent powers. For example 7*X**2 instead of 7*X^2.
 ## 2. Always use * when doing all sorts of multiplcation in your reasoning steps and even in reporting answers.
 
-Answer: 609*y**5 - 1029*y**4 + 1421*y**2 - 2401*y
-Metadata: {'polynomial_expr': '(29*y**2 - 49*y)*(21*y**3 + 49)', 'result': '609*y**5 - 1029*y**4 + 1421*y**2 - 2401*y', 'variables': [y]}
+Answer: -2401*y**4 + 392*y**3 + 609*y**2
+Metadata: {'polynomial_expr': '(29 - 49*y)*(49*y**3 + 21*y**2)', 'result': '-2401*y**4 + 392*y**3 + 609*y**2', 'variables': [y]}
 
 ````
 
@@ -4746,33 +4856,33 @@ Question: Given two strings representing a ransom note and a magazine, return Tr
 
 Each letter in the magazine string can only be used once in your ransom note.
 
-Ransom note: c
-Magazine: kjjfnerbv
+Ransom note: o
+Magazine: kggcbafzr
 
 Answer: False
-Metadata: {'ransom_note': 'c', 'magazine': 'kjjfnerbv', 'solution': False, 'solvable': False}
+Metadata: {'ransom_note': 'o', 'magazine': 'kggcbafzr', 'solution': False, 'solvable': False}
 
 Example 2:
 Question: Given two strings representing a ransom note and a magazine, return True if you can construct the ransom note using the letters in the magazine, and False otherwise.
 
 Each letter in the magazine string can only be used once in your ransom note.
 
-Ransom note: pan
-Magazine: pipmrxluyrkumtnaynmqosywf
+Ransom note: gpf
+Magazine: gugmqkjisqyimbfpsfmtnzsvc
 
 Answer: True
-Metadata: {'ransom_note': 'pan', 'magazine': 'pipmrxluyrkumtnaynmqosywf', 'solution': True, 'solvable': True}
+Metadata: {'ransom_note': 'gpf', 'magazine': 'gugmqkjisqyimbfpsfmtnzsvc', 'solution': True, 'solvable': True}
 
 Example 3:
 Question: Given two strings representing a ransom note and a magazine, return True if you can construct the ransom note using the letters in the magazine, and False otherwise.
 
 Each letter in the magazine string can only be used once in your ransom note.
 
-Ransom note: yuothygge
-Magazine: gpfslbehhhhagoutvejfoytuuyy
+Ransom note: sinbdsxxa
+Magazine: xgczjeaddddpxnibhalcnsbiiss
 
 Answer: True
-Metadata: {'ransom_note': 'yuothygge', 'magazine': 'gpfslbehhhhagoutvejfoytuuyy', 'solution': True, 'solvable': True}
+Metadata: {'ransom_note': 'sinbdsxxa', 'magazine': 'xgczjeaddddpxnibhalcnsbiiss', 'solution': True, 'solvable': True}
 
 ````
 
@@ -5700,7 +5810,7 @@ Question: You are given a 3x3x3 Rubik's cube. It looks like this:
           B  W  B                   
  
 
-Please provide a solution to solve this cube using Singmaster notation.
+Please provide a solution to solve this cube using Singmaster notation. Do not combine any steps, for instance, do not write 'U2', and instead write 'U U'.
 Answer: None
 Metadata: {'cube_size': 3, 'scramble_steps': 3, 'scramble_moves': "F L' R", 'example_correct_answer': "L F' U' R D B' D' U R U' R' U B U' B' U' R' U R U B U' B' U R' U R U B U' B' U' B' U B U L U' L' U' B' U B U L U' L' U B' U B U L U' L' F R U R' U' F' U' R U R' U R U U R' F U' B' U F' U' B R' D' R D R' D' R D R' D' R D R' D' R D U R' D' R D R' D' R D U R' D' R D R' D' R D R' D' R D R' D' R D U R' D' R D R' D' R D U"}
 
@@ -5718,7 +5828,7 @@ Question: You are given a 3x3x3 Rubik's cube. It looks like this:
           B  W  W                   
  
 
-Please provide a solution to solve this cube using Singmaster notation.
+Please provide a solution to solve this cube using Singmaster notation. Do not combine any steps, for instance, do not write 'U2', and instead write 'U U'.
 Answer: None
 Metadata: {'cube_size': 3, 'scramble_steps': 3, 'scramble_moves': "L' F U'", 'example_correct_answer': "U' D' B D L' U' F D R' D' U' R U' R' F' U U F U F U' F' U' L' U L U F U' F' U L' U L U F U' F' R U' R' U' F' U F R' U R U B U' B' U' U' B' U B U L U' L' F R U R' U' R U R' U' F' U R U R' U R U U R' U' R U R' U R U U R' U' R U' L' U R' U' L U F U' B' U F' U' B R' D' R D R' D' R D U U R' D' R D R' D' R D U R' D' R D R' D' R D U"}
 
@@ -5736,7 +5846,7 @@ Question: You are given a 3x3x3 Rubik's cube. It looks like this:
           W  W  Y                   
  
 
-Please provide a solution to solve this cube using Singmaster notation.
+Please provide a solution to solve this cube using Singmaster notation. Do not combine any steps, for instance, do not write 'U2', and instead write 'U U'.
 Answer: None
 Metadata: {'cube_size': 3, 'scramble_steps': 3, 'scramble_moves': "U R' R'", 'example_correct_answer': "R R U'"}
 
@@ -6950,7 +7060,7 @@ Metadata: {'task_type': 'datetime_tz', 'start_time': datetime.datetime(2964, 6, 
 Example 2:
 Question: A video call started at 09:44 and ended at 12:22. How long was the call? Answer in HH:MM.
 Answer: 02:38
-Metadata: {'task_type': 'time', 'start_time': datetime.datetime(2025, 2, 26, 9, 44), 'end_time': datetime.datetime(2025, 2, 26, 12, 22), 'format': '%H:%M', 'expected_format': 'HH:MM'}
+Metadata: {'task_type': 'time', 'start_time': datetime.datetime(2025, 3, 1, 9, 44), 'end_time': datetime.datetime(2025, 3, 1, 12, 22), 'format': '%H:%M', 'expected_format': 'HH:MM'}
 
 Example 3:
 Question: Calculate the time difference between Sat Dec 22 2677 and Thu Mar 21 2678. Express the result in D days.
@@ -7055,6 +7165,7 @@ Example tasks:
 Example 1:
 Question: I have a Go problem for you. Black moves next - can you capture some of the white stones?
 
+```
    A B C D E F G H I
  9 X . . . X . . . .
  8 . . . . . . . . .
@@ -7065,17 +7176,19 @@ Question: I have a Go problem for you. Black moves next - can you capture some o
  3 . . X O X . . . .
  2 . . . X . . . . .
  1 . O . O . . X . .
+```
 
 X - Black
 O - White
 
 Specify your move in coordinates (e.g. 'C4' for column C, row 4)
 Answer: E4
-Metadata: {'difficulty': {'board_size': 9}, 'board': [['X', '.', '.', '.', 'X', '.', '.', '.', '.'], ['.', '.', '.', '.', '.', '.', '.', '.', '.'], ['.', 'O', '.', 'O', '.', '.', 'X', '.', '.'], ['.', '.', '.', 'X', '.', '.', '.', '.', 'O'], ['O', '.', 'X', 'O', 'X', '.', '.', '.', '.'], ['.', 'X', 'O', 'O', '.', 'O', '.', '.', '.'], ['.', '.', 'X', 'O', 'X', '.', '.', '.', '.'], ['.', '.', '.', 'X', '.', '.', '.', '.', '.'], ['.', 'O', '.', 'O', '.', '.', 'X', '.', '.']], 'solution': 'E4'}
+Metadata: {'difficulty': {'board_size': 9}, 'board': [['X', '.', '.', '.', 'X', '.', '.', '.', '.'], ['.', '.', '.', '.', '.', '.', '.', '.', '.'], ['.', 'O', '.', 'O', '.', '.', 'X', '.', '.'], ['.', '.', '.', 'X', '.', '.', '.', '.', 'O'], ['O', '.', 'X', 'O', 'X', '.', '.', '.', '.'], ['.', 'X', 'O', 'O', '.', 'O', '.', '.', '.'], ['.', '.', 'X', 'O', 'X', '.', '.', '.', '.'], ['.', '.', '.', 'X', '.', '.', '.', '.', '.'], ['.', 'O', '.', 'O', '.', '.', 'X', '.', '.']]}
 
 Example 2:
 Question: Here's a Go challenge. Playing as Black, how can you capture as many white stones as possible?
 
+```
    A B C D E F G H I
  9 . . O . . . . . .
  8 . X O . . . . . .
@@ -7086,18 +7199,20 @@ Question: Here's a Go challenge. Playing as Black, how can you capture as many w
  3 . X . . . . X . .
  2 O . O . . . . . .
  1 . . . . O . . . .
+```
 
 X - Black
 O - White
 
 Specify your move in coordinates (e.g. 'C4' for column C, row 4)
 Answer: B7
-Metadata: {'difficulty': {'board_size': 9}, 'board': [['.', '.', 'O', '.', '.', '.', '.', '.', '.'], ['.', 'X', 'O', '.', '.', '.', '.', '.', '.'], ['X', '.', 'X', '.', '.', '.', '.', '.', '.'], ['O', 'O', 'O', 'X', '.', '.', '.', '.', '.'], ['X', 'O', 'O', '.', '.', '.', '.', '.', '.'], ['.', 'X', '.', '.', '.', '.', '.', '.', 'O'], ['.', 'X', '.', '.', '.', '.', 'X', '.', '.'], ['O', '.', 'O', '.', '.', '.', '.', '.', '.'], ['.', '.', '.', '.', 'O', '.', '.', '.', '.']], 'solution': 'B7'}
+Metadata: {'difficulty': {'board_size': 9}, 'board': [['.', '.', 'O', '.', '.', '.', '.', '.', '.'], ['.', 'X', 'O', '.', '.', '.', '.', '.', '.'], ['X', '.', 'X', '.', '.', '.', '.', '.', '.'], ['O', 'O', 'O', 'X', '.', '.', '.', '.', '.'], ['X', 'O', 'O', '.', '.', '.', '.', '.', '.'], ['.', 'X', '.', '.', '.', '.', '.', '.', 'O'], ['.', 'X', '.', '.', '.', '.', 'X', '.', '.'], ['O', '.', 'O', '.', '.', '.', '.', '.', '.'], ['.', '.', '.', '.', 'O', '.', '.', '.', '.']]}
 
 Example 3:
 Question: Tsumego time. Black to play and capture some stones.
 Find the key move.
 
+```
    A B C D E F G H I J K L
 12 . . . . . . . . . . . .
 11 . . X . . . . . . . . .
@@ -7111,13 +7226,14 @@ Find the key move.
  3 X . X . . . . . . . . .
  2 . . . . . . . . . . . .
  1 . . . . . . . . . . X .
+```
 
 X - Black
 O - White
 
 Specify your move in coordinates (e.g. 'C4' for column C, row 4)
 Answer: D4
-Metadata: {'difficulty': {'board_size': 12}, 'board': [['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'], ['.', '.', 'X', '.', '.', '.', '.', '.', '.', '.', '.', '.'], ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'], ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'], ['X', '.', '.', '.', '.', 'X', '.', '.', '.', 'X', '.', '.'], ['.', 'X', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'], ['.', 'O', 'X', 'X', '.', '.', '.', '.', '.', '.', '.', 'O'], ['.', 'X', 'O', 'O', 'X', '.', '.', '.', '.', '.', '.', '.'], ['.', 'O', 'O', '.', '.', '.', '.', '.', 'O', '.', '.', 'O'], ['X', '.', 'X', '.', '.', '.', '.', '.', '.', '.', '.', '.'], ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'], ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', 'X', '.']], 'solution': 'D4'}
+Metadata: {'difficulty': {'board_size': 12}, 'board': [['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'], ['.', '.', 'X', '.', '.', '.', '.', '.', '.', '.', '.', '.'], ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'], ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'], ['X', '.', '.', '.', '.', 'X', '.', '.', '.', 'X', '.', '.'], ['.', 'X', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'], ['.', 'O', 'X', 'X', '.', '.', '.', '.', '.', '.', '.', 'O'], ['.', 'X', 'O', 'O', 'X', '.', '.', '.', '.', '.', '.', '.'], ['.', 'O', 'O', '.', '.', '.', '.', '.', 'O', '.', '.', 'O'], ['X', '.', 'X', '.', '.', '.', '.', '.', '.', '.', '.', '.'], ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'], ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', 'X', '.']]}
 
 ````
 
@@ -7140,7 +7256,7 @@ Example 1:
 Question: Transform the word ladder 'HAND' to 'GLEE' by changing one letter at a time.
 Provide your answer as a comma-separated sequence of uppercase letters without spaces.
 Each step must be a valid English word.
-Answer: HAND,HARD,HERD,HEED,FEED,FLED,FLEE,GLEE
+Answer: HAND,HIND,FIND,FEND,FEED,FLED,FLEE,GLEE
 Metadata: {'start_word': 'HAND', 'end_word': 'GLEE', 'word_length': 4, 'chain_length': 8}
 
 Example 2:
@@ -7154,7 +7270,7 @@ Example 3:
 Question: Transform the word ladder 'SNOG' to 'SUQS' by changing one letter at a time.
 Provide your answer as a comma-separated sequence of uppercase letters without spaces.
 Each step must be a valid English word.
-Answer: SNOG,SNOW,SHOW,SHEW,SHES,SUES,SUQS
+Answer: SNOG,SNAG,SAAG,SANG,SANS,SUNS,SUQS
 Metadata: {'start_word': 'SNOG', 'end_word': 'SUQS', 'word_length': 4, 'chain_length': 7}
 
 ````
