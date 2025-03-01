@@ -52,8 +52,6 @@ def generate_dataset(local_dir: str, size: int = 500, train_frac: float = 0.8) -
    # Add examples for each dataset
     train_data: List[Dict[str, Any]] = []
     for i, name in enumerate(sorted(DATASETS.keys())):
-        if i < 23:
-            continue
         print(f"Generating {name} dataset ({i+1}/{len(DATASETS)})")
         dataset = create_dataset(name,size=size, seed=42)
         train_size = int(size * train_frac)
