@@ -3,6 +3,9 @@ import re
 from decimal import Decimal, InvalidOperation
 from fractions import Fraction
 from typing import Any, Optional, Union
+from reasoning_gym.factory import DATASETS, create_dataset
+import json
+
 
 SYSTEM_PROMPTS = {
     "DeepSeekZero": """A conversation between User and Assistant. The user asks a question, and the Assistant solves it.
@@ -110,3 +113,25 @@ def compute_decimal_reward(answer: Optional[str], oracle_answer: str, strip_comm
             reward = len(oracle_answer) / len(answer)
 
     return reward
+
+class ScoreAnswer:
+
+    def __init__(self):
+        self.datasets = {}
+        for i, name in enumerate(sorted(DATASETS.keys())):
+            self.datasets[name] = create_dataset(name, size=1, seed=42)
+
+
+    def score_answer(self, solution_str: str, entry: str, task: str) -> float:
+        """Score an answer against the oracle answer.
+
+        Args:
+            answer: Answer provided by model
+            oracle_answer: Correct answer to the question
+        """
+        found_answer = extract_answer(solution_str, tag_name="answer")
+        entry = json.loads(entry)
+        reward = self.datasets[task].score_answer(found_answer, entry=entry)
+        return reward
+
+
