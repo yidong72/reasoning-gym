@@ -20,6 +20,8 @@ async def score(request: ScoreRequest):
     except Exception as e:
         # print stack trace
         import traceback
+        print(traceback.format_exc())
+        print(e)
         traceback.print_exc()
         return {"score": 0.0, "error": str(e)}
 
