@@ -124,13 +124,13 @@ int main() {{
         if answer == None:
             return 0.0
         if answer != entry["answer"]:
-            if entry["answer"] in answer.splitlines():
-                # We can be quite confident that the correct answer was given
-                # It was likely just given alongside an explanation
-                return max(0.9 * len(answer) / len(entry["answer"]), 0.1)
-            if entry["answer"] in answer:
-                # Since answers are English words, some risk of the response coincidentally containing the answer
-                return max(0.5 * len(answer) / len(entry["answer"]), 0.1)
+            # if entry["answer"] in answer.splitlines():
+            #     # We can be quite confident that the correct answer was given
+            #     # It was likely just given alongside an explanation
+            #     return max(0.9 * len(answer) / len(entry["answer"]), 0.1)
+            # if entry["answer"] in answer:
+            #     # Since answers are English words, some risk of the response coincidentally containing the answer
+            #     return max(0.5 * len(answer) / len(entry["answer"]), 0.1)
             return 0.01
         else:
             return 1.0  # Yay
