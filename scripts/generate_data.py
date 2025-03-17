@@ -61,10 +61,34 @@ def generate_dataset(local_dir: str, data_size: int = 500, train_frac: float = 0
         print(f"Generating {name} dataset ({i+1}/{len(DATASETS)})")
         if name == 'sokoban':
             size = 100
-            dataset = create_dataset(name,size=size, seed=42)
+            dataset = create_dataset(name, size=size, seed=42)
         else:
             size = data_size
-            dataset = create_dataset(name,size=size, seed=42)
+            # Generate dataset with potentially more examples to account for duplicates
+            initial_size = int(size * 2.5)  # Generate 50% more samples initially to account for duplicates
+            dataset = create_dataset(name, size=initial_size, seed=42)
+            
+            # Deduplicate the dataset by checking for unique questions
+            seen_questions = set()
+            unique_dataset = []
+            
+            for example in dataset:
+                question = example['question']
+                if question not in seen_questions:
+                    seen_questions.add(question)
+                    unique_dataset.append(example)
+                    # If we have enough unique examples, stop
+                    if len(unique_dataset) >= size:
+                        break
+            
+            # If we still don't have enough unique examples, try generating more
+            if len(unique_dataset) < size:
+                print(f"Warning: Could only generate {len(unique_dataset)} unique examples for {name} dataset (requested {size}).")
+                # You could add code here to generate more with different seeds if needed
+            
+            dataset = unique_dataset[:size]  # Take only the requested number of examples
+            size = len(dataset)  # Update size to actual number of unique examples
+            
         train_size = int(size * train_frac)
         split = 'train'
         for i in range(train_size):
