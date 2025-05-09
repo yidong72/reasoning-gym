@@ -14,8 +14,8 @@ class CustomEncoder(json.JSONEncoder):
 
 #data = pd.read_parquet('data/train.parquet')
 # data = pd.read_parquet('data/acre.parquet')
-# data = pd.read_parquet('data/boxnet.parquet')
-data = pd.read_parquet('data/game_of_life_halting.parquet')
+data = pd.read_parquet('data/boxnet.parquet')
+# data = pd.read_parquet('data/game_of_life_halting.parquet')
 # data = pd.read_parquet('data/modulo_grid.parquet')
 
 
@@ -31,6 +31,8 @@ answer = """XXXXXXXXXXXXXXXX<answer>A# B# B# A# A# A#</answer>"""
 
 score_answer = ScoreAnswer()
 answer = entry_obj['answer']
+if answer is None:
+    answer = ""
 res = score_answer.score_answer(answer, entry, task)
 print(res)
 answer2 = f'<answer>{answer}</answer>'
