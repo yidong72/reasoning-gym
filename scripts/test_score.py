@@ -13,8 +13,8 @@ class CustomEncoder(json.JSONEncoder):
 
 
 #data = pd.read_parquet('data/train.parquet')
-# data = pd.read_parquet('data/acre.parquet')
-data = pd.read_parquet('data/boxnet.parquet')
+data = pd.read_parquet('data/acre.parquet')
+# data = pd.read_parquet('data/boxnet.parquet')
 # data = pd.read_parquet('data/game_of_life_halting.parquet')
 # data = pd.read_parquet('data/modulo_grid.parquet')
 
